@@ -102,6 +102,7 @@ class Point(object):
                     answer = p3
         else:
             answer = p2
+
         return answer
 
     def halfway_to(self, p2):
