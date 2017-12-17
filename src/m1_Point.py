@@ -95,12 +95,19 @@ class Point(object):
 
     def closer_to(self, p2, p3):
         """Returns the closer of p2 or p3 to self"""
-        if math.sqrt((p2.x - self.x) ** 2 + (p2.y - self.y) ** 2) < math.sqrt((p3.x - self.x) ** 2 + (p3.y - self.y) ** 2):
-            answer = p2
+        if math.sqrt((p2.x - self.x) ** 2 + (p2.y - self.y) ** 2) != math.sqrt((p3.x - self.x) ** 2 + (p3.y - self.y) ** 2):
+                if math.sqrt((p2.x - self.x) ** 2 + (p2.y - self.y) ** 2) < math.sqrt((p3.x - self.x) ** 2 + (p3.y - self.y) ** 2):
+                    answer = p2
+                else:
+                    answer = p3
         else:
-            answer = p3
-        # if math.sqrt((p2.x - self.x) ** 2 + (p2.y - self.y) ** 2) = math.sqrt((p3.x - self.x) ** 2 + (p3.y - self.y) ** 2):
+            answer = p2
         return answer
+
+    def halfway_to(self, p2):
+        halfwayx = (p2.x + self.x) / 2
+        halfwayy = (p2.y + self.y) / 2
+        return "Point(" + str(halfwayx) + ", " + str(halfwayy) + ")"
 
 ########################################################################
 # NOTE: For ALL of the methods that you implement, the method is allowed
@@ -997,7 +1004,7 @@ def run_test_closer_to():
         print('Actual:  ', p1.closer_to(p4, p5) is p5)
     """
     # ------------------------------------------------------------------
-    # TODO: 12.  Follow the same instructions as in TODO 3 above,
+    # Done: 12.  Follow the same instructions as in TO DO 3 above,
     #    but for the  closer_to  method specified above.
     # ------------------------------------------------------------------
     print()
